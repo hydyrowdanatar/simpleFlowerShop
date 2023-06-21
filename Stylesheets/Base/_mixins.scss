@@ -1,0 +1,25 @@
+@mixin flexBox($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin grid($x, $y) {
+  display: grid;
+  justify-content: $x;
+  align-items: $y;
+}
+
+// For tablet
+@mixin tablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+// For mobile
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}

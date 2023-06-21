@@ -1,0 +1,666 @@
+@import "./Base/reset", "./Base/mixins", "./Base/colors", "./Base/ready_styles";
+
+// Header start
+.header {
+  width: 100%;
+  padding: 20px 0;
+  position: fixed;
+  z-index: 9;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  .content {
+    width: 90%;
+    margin: 0 auto;
+    @include flexBox(space-between, center);
+
+    @include tablet {
+      width: 95%;
+      margin: 0 a;
+    }
+    @include mobile {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .logo {
+      a {
+        font-size: 30px;
+        color: #333;
+        font-weight: bolder;
+
+        @include tablet {
+          font-size: 26.4px;
+        }
+        @include mobile {
+          font-size: 24px;
+        }
+
+        span {
+          color: $pink;
+        }
+      }
+    }
+
+    .nav_menu {
+      ul {
+        @include flexBox(center, center);
+
+        @include tablet {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: #eee;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+          flex-direction: column;
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        }
+
+        li {
+          margin: 0 15px;
+
+          @include tablet {
+            display: block;
+            margin: 15px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 95%;
+          }
+
+          a {
+            font-size: 20px;
+            color: #666;
+
+            &:hover {
+              color: $pink;
+            }
+
+            @include tablet {
+              font-size: 17.6px;
+            }
+            @include mobile {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .icons {
+      span {
+        i {
+          font-size: 25px;
+          margin-left: 15px;
+          color: #333;
+          cursor: pointer;
+
+          &:hover {
+            color: $pink;
+          }
+
+          @include tablet {
+            font-size: 22px;
+          }
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    #toggler {
+      display: none;
+
+      @include tablet {
+        &:checked ~ .nav_menu {
+          ul {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          }
+        }
+      }
+    }
+
+    .fa-bars {
+      font-size: 30px;
+      color: #333;
+      border-radius: 5px;
+      padding: 5px 15px;
+      cursor: pointer;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+
+      display: none;
+
+      @include tablet {
+        display: block;
+        font-size: 26.4px;
+      }
+      @include mobile {
+        font-size: 24px;
+      }
+    }
+  }
+}
+// Header end
+
+// Home section start
+.home {
+  width: 100%;
+  background-image: url(./../IMG/flower.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+  @include tablet {
+    background-position: left;
+  }
+  @include mobile {
+    background-position: left;
+  }
+
+  .content {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    @include flexBox(flex-start, center);
+
+    .flower {
+      width: 500px;
+
+      p.title {
+        font-size: 60px;
+        color: #333;
+        font-weight: bolder;
+
+        @include tablet {
+          font-size: 50px;
+        }
+        @include mobile {
+          font-size: 50px;
+        }
+      }
+
+      p.name {
+        font-size: 35px;
+        color: $pink;
+        margin: 10px 0;
+
+        @include tablet {
+          font-size: 25px;
+        }
+        @include mobile {
+          font-size: 25px;
+        }
+      }
+
+      p.info {
+        font-size: 15px;
+        color: #999;
+        margin: 10px 0;
+      }
+
+      .btn {
+        @extend .btn;
+      }
+    }
+  }
+}
+// Home section end
+
+// ABout section start
+.about {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+    .heading {
+      @extend .heading;
+
+      @include mobile {
+        font-size: 30px;
+      }
+    }
+
+    .container {
+      @include flexBox(space-between, center);
+      gap: 20px;
+      padding: 20px 0;
+
+      @include tablet {
+        display: block;
+      }
+
+      .left {
+        position: relative;
+        width: 50%;
+        height: 400px;
+
+        @include tablet {
+          width: 95%;
+          margin: 0 auto;
+        }
+
+        video {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border: 15px solid #fff;
+          border-radius: 5px;
+          box-shadow: 0 5 10 rgba (0, 0, 0, 0.1);
+        }
+
+        p.name {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 30px;
+          font-weight: bolder;
+          width: 100%;
+          padding: 10px 20px;
+          text-align: center;
+          background: #fff;
+          mix-blend-mode: screen;
+        }
+      }
+
+      .right {
+        width: 50%;
+
+        @include tablet {
+          width: 95%;
+          margin: 0 auto;
+        }
+
+        p.question {
+          font-size: 30px;
+          font-weight: bolder;
+          color: #333;
+        }
+
+        p.info {
+          font-size: 15px;
+          color: #999;
+          padding: 10px 0 5px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+// ABout section end
+
+// Icons section start
+.icon_container {
+  width: 100%;
+  background: #eee;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+    @include grid(space-between, center);
+    grid-template-columns: auto auto auto auto;
+
+    padding: 35px 0;
+
+    @include tablet {
+      width: 95%;
+      margin: 0 auto;
+      grid-template-columns: 50% 50%;
+      gap: 20px;
+    }
+
+    @include mobile {
+      width: 95%;
+      margin: 0 auto;
+      grid-template-columns: 100%;
+    }
+
+    .icon {
+      @include flexBox(space-between, center);
+      gap: 15px;
+      background: #fff;
+      padding: 20px;
+
+      @include tablet {
+        justify-content: flex-start;
+      }
+
+      .left {
+        span {
+          i {
+            font-size: 60px;
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .right {
+        p.name {
+          color: #333;
+          font-size: 15px;
+          font-weight: bolder;
+          padding-bottom: 5px;
+        }
+
+        p.about {
+          color: #555;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+// Icons section end
+
+// Products section start
+.products {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    .boxes {
+      @include grid(space-between, center);
+      grid-template-columns: auto auto auto;
+      row-gap: 15px;
+
+      @include tablet {
+        grid-template-columns: auto auto;
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+
+      .box {
+        @extend .box;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+
+          .img {
+            .icons {
+              bottom: 0;
+            }
+          }
+        }
+
+        span.discount {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 7px 10px;
+          font-size: 20px;
+          color: $pink;
+          // background: rgba(255, 51, 153, 0.05);
+          background: #fff;
+          z-index: 1;
+          border-radius: 5px;
+        }
+
+        .img {
+          position: relative;
+          overflow: hidden;
+          text-align: center;
+
+          .icons {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            display: flex;
+
+            a {
+              height: 25px;
+              line-height: 25px;
+              font-size: 20px;
+              background: $pink;
+              color: #fff;
+              width: 50%;
+
+              &:hover {
+                background: #333;
+              }
+            }
+
+            a.cart-btn {
+              border-left: 1px solid #fff7;
+              border-right: 1px solid #fff7;
+              width: 100%;
+            }
+          }
+        }
+
+        .about {
+          padding: 20px;
+          text-align: center;
+
+          p.name {
+            font-size: 25px;
+            color: #333;
+            font-weight: bolder;
+          }
+
+          p.count {
+            font-size: 25px;
+            color: $pink;
+            font-weight: bolder;
+            padding-top: 10px;
+
+            span {
+              font-size: 15px;
+              font-weight: lighter;
+              color: #999;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Products section end
+
+// Review section start
+.review {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    .boxes {
+      @include grid(space-between, center);
+      grid-template-columns: auto auto auto;
+      gap: 20px;
+
+      @include tablet {
+        grid-template-columns: auto auto;
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+
+      .box {
+        padding: 30px 20px;
+        position: relative;
+
+        .starts {
+          span {
+            i {
+              color: $pink;
+              font-size: 20px;
+            }
+          }
+        }
+
+        .user_about {
+          p {
+            color: #999;
+            font-size: 15px;
+            line-height: 1.5;
+            padding-top: 20px;
+          }
+        }
+        .user {
+          @include flexBox(flex-start, center);
+          padding-top: 20px;
+          img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          .user_info {
+            p.name {
+              font-size: 20px;
+              color: #333;
+              font-weight: bolder;
+            }
+
+            p.mood {
+              font-size: 15px;
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Review section end
+
+// Contact section start
+.contact {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    .sides {
+      @include flexBox(space-between, center);
+
+      @include tablet {
+        flex-direction: column-reverse;
+      }
+
+      @include mobile {
+        flex-direction: column-reverse;
+      }
+
+      form {
+        padding: 20px 25px;
+        width: 50%;
+
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+        }
+
+        .input {
+          padding: 10px;
+          font-size: 17px;
+          color: #333;
+          text-transform: none;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+          margin: 7px 0;
+          width: 100%;
+        }
+
+        textarea {
+          height: 150px;
+          resize: none;
+        }
+      }
+
+      .img {
+        width: 50%;
+
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+// Contact section end
+
+// Footer start
+.footer {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    .link_container {
+      padding-top: 20px;
+      @include  grid(space-between, flex-start);
+      grid-template-columns: auto auto auto auto;
+
+      @include tablet {
+        grid-template-columns: auto auto;
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+
+      .link {
+        p.title {
+          color: #333;
+          font-size: 25px;
+          padding: 10px 0;
+        }
+
+        a {
+          display: block;
+          color: #666;
+          font-size: 15px;
+          padding: 10px 0;
+
+          &:hover {
+            color: $pink;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .create {
+      margin-top: 25px;
+      p.create {
+        text-align: center;
+        padding: 15px;
+        padding-top: 25px;
+        font-size: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+        span {
+          color: $pink;
+        }
+      }
+    }
+  }
+}
+// Footer end
